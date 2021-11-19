@@ -21,16 +21,17 @@ For example:
 
 \newslide
 
-\topfill{.333}
+\topfill
 {\center %
     \header My presentation
     \subheader (with subtitle)}
 
 \newslide
 
-\topfill{.4}
-{\center 
-    Thank you for attending my talk.}
+\topfill
+{\center %
+    Thank you for coming to my talk.
+}
 
 \bye
 ```
@@ -60,6 +61,7 @@ You will have to place a copy of nobeamer.tex in your project directory. MiKTeX 
     + `\tiny`
 * `\newslide` --- Clears the page (`\vfill\break`).
 * `\topfill{<ratio>}` --- Inserts `\topglue` of `0pt plus <ratio>fill`.
+* `\topfill` --- Inserts `\topglue` of `0pt plus 1fill`.
 * `\foldbottom` --- Inserts `-1fill` vertical glue.
 
 ## Why
