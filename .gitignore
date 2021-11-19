@@ -1,0 +1,9 @@
+latexmkrc
+.*
+!.gitignore
+*.aux
+*.fls
+*.fdb*
+*.log
+*.pdf
+!example.pdf

@@ -1,0 +1,101 @@
+\ifx\eplain\undefined \input eplain \fi
+
+% Slide sizes
+\ifpdf
+    \pdfpagewidth=8 in
+    \pdfpageheight=6 in
+\fi
+\paperwidth=8 true in
+\paperheight=6 true in
+\topmargin=.2 true in
+\leftmargin=.4 true in
+
+% No page numbering
+\makeatletter
+\let\nobeamer@folio\folio
+\def\disablepagenumbering{\def\folio{}}
+\def\enablepagenumbering{\let\folio\nobeamer@folio}
+\makeatother
+
+\disablepagenumbering
+
+% Misc. page setup
+\parindent=0pt
+
+% Fonts
+\makeatletter
+\def\nobeamer@buildfont#1#2#3{%
+    \expandafter\font\csname #1#2\expandafter\endcsname=cm#3}
+\def\nobeamer@buildfamily#1#2#3#4{%
+    % Text fonts
+    \nobeamer@buildfont{#1}{rm}{r#2}%
+    \nobeamer@buildfont{#1}{it}{ti#2}%
+    \nobeamer@buildfont{#1}{sl}{sl#2}%
+    \nobeamer@buildfont{#1}{tt}{tt#2}%
+    \nobeamer@buildfont{#1}{bf}{bx#2}%
+    % Math fonts
+    \def\nobeamer@makemathfonts##1##2{%
+        \nobeamer@buildfont{#1}{tf##1}{##2#2}%
+        \nobeamer@buildfont{#1}{sf##1}{##2#3}%
+        \nobeamer@buildfont{#1}{ssf##1}{##2#4}}%
+    \nobeamer@makemathfonts{r}{r} % Roman
+    \nobeamer@makemathfonts{mi}{mi} % Math italic
+    \nobeamer@makemathfonts{sy}{sy} % Math symbols
+    \nobeamer@makemathfonts{ex}{ex} % Math symbols
+    \nobeamer@makemathfonts{it}{ti} % Italic
+    \nobeamer@makemathfonts{sl}{sl} % Slanted
+    \nobeamer@makemathfonts{bf}{bx} % Bold
+    \nobeamer@makemathfonts{tt}{tt} % Typewriter
+    \def\nobeamer@setfonts##1##2{%
+        \expandafter\textfont##1=\csname #1tf##2\endcsname%
+        \expandafter\scriptfont##1=\csname #1sf##2\endcsname%
+        \expandafter\scriptscriptfont##1=\csname #1ssf##2\endcsname}%
+    \def\nobeamer@oldstyle{rm}
+    \expandafter\def\csname #1\endcsname{%
+        \nobeamer@setfonts{0}{r}%
+        \nobeamer@setfonts{1}{mi}%
+        \nobeamer@setfonts{2}{sy}%
+        \nobeamer@setfonts{3}{ex}%
+        \nobeamer@setfonts{\noexpand\itfam}{it}%
+        \nobeamer@setfonts{\noexpand\slfam}{sl}%
+        \nobeamer@setfonts{\noexpand\bffam}{bf}%
+        \nobeamer@setfonts{\noexpand\ttfam}{tt}%
+        \def\styleswitch{\expandafter\csname #1\nobeamer@oldstyle\endcsname}%
+        \def\rm{%
+            \def\nobeamer@oldstyle{rm}%
+            \styleswitch}%
+        \def\it{%
+            \def\nobeamer@oldstyle{it}%
+            \styleswitch}%
+        \def\sl{%
+            \def\nobeamer@oldstyle{sl}%
+            \styleswitch}%
+        \def\bf{%
+            \def\nobeamer@oldstyle{bf}%
+            \styleswitch}%
+        \def\tt{%
+            \def\nobeamer@oldstyle{tt}%
+            \styleswitch}%
+        \styleswitch}%
+    }
+
+\nobeamer@buildfamily%
+    {big}{18 scaled \magstep5}{16 scaled \magstep5}{15 scaled \magstep5}
+\nobeamer@buildfamily%
+    {large}{12 scaled \magstep5}{10 scaled \magstep5}{9 scaled \magstep5}
+\nobeamer@buildfamily%
+    {regular}{12 scaled \magstep2}{10 scaled \magstep2}{9 scaled \magstep2}
+\nobeamer@buildfamily%
+    {small}{12}{10}{9}
+\nobeamer@buildfamily%
+    {smaller}{10}{8}{7}
+\nobeamer@buildfamily%
+    {tiny}{8}{6}{5}
+\makeatother
+
+\regular % is default.
+
+% utility commands
+\def\newslide{\vfill\break}
+\def\topfill#1{\topglue 0pt plus #1fill}
+\def\foldbottom{\vskip 0pt plus -1fill}
