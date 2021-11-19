@@ -47,6 +47,8 @@ $latex = 'pdftex %O %S'
 
 You will have to place a copy of nobeamer.tex in your project directory. MiKTeX is recommended to automatically include the necessary font dependencies, as well as `eplain.tex`.
 
+`nobeamer` sets the page size to 8×4 inches, with a horizontal margin of 0.4 inches, and a vertical margin of 0.2 inches.
+
 ## Commands provided
 
 * Font sizes, from largest to smallest:
