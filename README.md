@@ -60,7 +60,6 @@ You will have to place a copy of nobeamer.tex in your project directory. MiKTeX 
     + `\smaller`
     + `\tiny`
 * `\newslide` --- Clears the page (`\vfill\break`).
-* `\topfill{<ratio>}` --- Inserts `\topglue` of `0pt plus <ratio>fill`.
 * `\topfill` --- Inserts `\topglue` of `0pt plus 1fill`.
 * `\foldbottom` --- Inserts `-1fill` vertical glue.
 
