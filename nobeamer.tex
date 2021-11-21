@@ -1,6 +1,8 @@
 % Include eplain.tex if it is not yet included
 \def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax}
-\ifundefined eplain \input eplain \fi 
+\def\ifdefined#1{\ifundefined{#1}\relax\else}
+{\ifdefined{undefined}\errmessage{\noexpand\undefined cannot be defined!}\fi}
+\ifx\eplain\undefined \input eplain \fi 
 
 % Slide sizes
 \ifpdf
@@ -45,7 +47,7 @@
     \nobeamer@makemathfonts{r}{r} % Roman
     \nobeamer@makemathfonts{mi}{mi} % Math italic
     \nobeamer@makemathfonts{sy}{sy} % Math symbols
-    \nobeamer@makemathfonts{ex}{ex} % Math symbols
+    \nobeamer@makemathfonts{ex}{ex} % Math extension
     \nobeamer@makemathfonts{it}{ti} % Italic
     \nobeamer@makemathfonts{sl}{sl} % Slanted
     \nobeamer@makemathfonts{bf}{bx} % Bold
