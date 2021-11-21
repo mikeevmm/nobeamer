@@ -1,4 +1,6 @@
-\ifx\eplain\undefined \input eplain \fi
+% Include eplain.tex if it is not yet included
+\def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax}
+\ifundefined eplain \input eplain \fi 
 
 % Slide sizes
 \ifpdf
