@@ -30,6 +30,7 @@
 
 % Fonts
 \makeatletter
+{\ifundefined{scfam}{\newfam\scfam}\fi}
 \def\nobeamer@buildfont#1#2#3{%
     \expandafter\font\csname #1#2\expandafter\endcsname=cm#3}
 \def\nobeamer@buildfamily#1#2#3#4{%
@@ -39,6 +40,7 @@
     \nobeamer@buildfont{#1}{sl}{sl#2}%
     \nobeamer@buildfont{#1}{tt}{tt#2}%
     \nobeamer@buildfont{#1}{bf}{bx#2}%
+    \nobeamer@buildfont{#1}{sc}{csc#2}%
     % Math fonts
     \def\nobeamer@makemathfonts##1##2{%
         \nobeamer@buildfont{#1}{tf##1}{##2#2}%
@@ -52,6 +54,7 @@
     \nobeamer@makemathfonts{sl}{sl} % Slanted
     \nobeamer@makemathfonts{bf}{bx} % Bold
     \nobeamer@makemathfonts{tt}{tt} % Typewriter
+    \nobeamer@makemathfonts{sc}{csc} % Small Caps
     \def\nobeamer@setfonts##1##2##3{%
         \expandafter\textfont##2=\expandafter\csname ##1tf##3\endcsname%
         \expandafter\scriptfont##2=\expandafter\csname ##1sf##3\endcsname%
@@ -66,6 +69,7 @@
         \nobeamer@setfonts{#1}{\noexpand\slfam}{sl}%
         \nobeamer@setfonts{#1}{\noexpand\bffam}{bf}%
         \nobeamer@setfonts{#1}{\noexpand\ttfam}{tt}%
+        \nobeamer@setfonts{#1}{\noexpand\scfam}{sc}%
         \def\styleswitch{\expandafter\csname #1\nobeamer@oldstyle\endcsname}%
         \def\rm{%
             \def\nobeamer@oldstyle{rm}%
@@ -81,6 +85,9 @@
             \styleswitch}%
         \def\tt{%
             \def\nobeamer@oldstyle{tt}%
+            \styleswitch}%
+        \def\sc{%
+            \def\nobeamer@oldstyle{sc}%
             \styleswitch}%
         \styleswitch%
         \baselineskip=1em}%
