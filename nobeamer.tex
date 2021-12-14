@@ -46,7 +46,7 @@
         \nobeamer@buildfont{#1}{tf##1}{##2#2}%
         \nobeamer@buildfont{#1}{sf##1}{##2#3}%
         \nobeamer@buildfont{#1}{ssf##1}{##2#4}}%
-    \nobeamer@makemathfonts{r}{r} % Roman
+    \nobeamer@makemathfonts{rm}{r} % Roman
     \nobeamer@makemathfonts{mi}{mi} % Math italic
     \nobeamer@makemathfonts{sy}{sy} % Math symbols
     \nobeamer@makemathfonts{ex}{ex} % Math extension
@@ -61,7 +61,7 @@
         \expandafter\scriptscriptfont##2=\expandafter\csname ##1ssf##3\endcsname}%
     \def\nobeamer@oldstyle{rm}
     \expandafter\def\csname #1\endcsname{%
-        \nobeamer@setfonts{#1}{0}{r}%
+        \nobeamer@setfonts{#1}{0}{rm}%
         \nobeamer@setfonts{#1}{1}{mi}%
         \nobeamer@setfonts{#1}{2}{sy}%
         \nobeamer@setfonts{#1}{3}{ex}%
@@ -70,7 +70,10 @@
         \nobeamer@setfonts{#1}{\noexpand\bffam}{bf}%
         \nobeamer@setfonts{#1}{\noexpand\ttfam}{tt}%
         \nobeamer@setfonts{#1}{\noexpand\scfam}{sc}%
-        \def\styleswitch{\expandafter\csname #1\nobeamer@oldstyle\endcsname}%
+        \def\styleswitch{%
+            \def\scriptsize{\expandafter\csname #1sf\nobeamer@oldstyle\endcsname}%
+            \def\scriptscriptsize{\expandafter\csname #1ssf\nobeamer@oldstyle\endcsname}%
+            \expandafter\csname #1\nobeamer@oldstyle\endcsname}%
         \def\rm{%
             \def\nobeamer@oldstyle{rm}%
             \styleswitch}%
