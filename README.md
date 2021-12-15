@@ -16,22 +16,20 @@ For example:
 
 ```tex
 \input nobeamer.tex
-\let\header\big
-\let\subheader\large
 
 \newslide
 
 \topfill
-{\center %
-    \header My presentation
-    \subheader (with subtitle)}
+\centering{
+    \big My presentation
 
-\newslide
-
-\topfill
-{\center %
-    Thank you for coming to my talk.
+    \large (with subtitle)
 }
+
+\newslide
+
+\topfill
+\centering{ Thank you for coming to my talk. }
 
 \bye
 ```
@@ -59,9 +57,12 @@ You will have to place a copy of nobeamer.tex in your project directory. MiKTeX 
     + `\small`
     + `\smaller`
     + `\tiny`
-* `\newslide` --- Clears the page (`\vfill\break`).
-* `\topfill` --- Inserts `\topglue` of `0pt plus 1fill`.
-* `\foldbottom` --- Inserts `-1fill` vertical glue.
+* `\scriptsize` and `\scriptsciptsize`,
+* `\newslide` clears the page (`\vfill\break`),
+* `\topfill` inserts `\topglue` of `0pt plus 1fill`,
+* `\fold` inserts `-1fill` vertical glue,
+* `\centering{ ... }` centers text,
+* `\mathcal`, `\mathrm`
 
 ## Why
 
