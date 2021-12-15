@@ -2,7 +2,10 @@
 \def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax}
 \def\ifdefined#1{\ifundefined{#1}\relax\else}
 {\ifdefined{undefined}\errmessage{\noexpand\undefined cannot be defined!}\fi}
-\ifx\eplain\undefined \input eplain \fi 
+\ifx\eplain\undefined %
+    \message{nobeamer: eplain not detected, loading eplain.} %
+    \input eplain %
+\fi 
 
 \message{nobeamer: loading utf8plainmac.}
 % Include utf8plainmac.tex, by egreg on StackOverflow: 163852.
@@ -291,3 +294,4 @@
 \def\newslide{\vfill\break}
 \def\topfill{\topglue 0pt plus 1fill}
 \def\foldbottom{\vskip 0pt plus -1fill}
+\message{nobeamer: finished loading. Have a nice day!}
