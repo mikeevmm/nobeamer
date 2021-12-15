@@ -296,4 +296,21 @@
 \def\fold{\vskip 0pt plus -1fill}
 \let\foldbottom\fold % Backwards compatibility
 
+\def\begincenter{%
+  \par
+  \begingroup
+  \leftskip=0pt plus 1fil
+  \rightskip=\leftskip
+  \parindent=0pt
+  \parfillskip=0pt
+}
+\def\endcenter{%
+  \par
+  \endgroup
+}
+\long\def\centering#1{\begincenter#1\endcenter}
+
+\def\mathcal#1{{\fam=2 #1}}
+\def\mathrm#1{{\fam=0 #1}}
+
 \message{nobeamer: finished loading. Have a nice day!}
