@@ -293,5 +293,7 @@
 % utility commands
 \def\newslide{\vfill\break}
 \def\topfill{\topglue 0pt plus 1fill}
-\def\foldbottom{\vskip 0pt plus -1fill}
+\def\fold{\vskip 0pt plus -1fill}
+\let\foldbottom\fold % Backwards compatibility
+
 \message{nobeamer: finished loading. Have a nice day!}
