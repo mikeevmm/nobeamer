@@ -57,7 +57,7 @@ You will have to place a copy of nobeamer.tex in your project directory. MiKTeX 
     + `\small`
     + `\smaller`
     + `\tiny`
-* `\scriptsize` and `\scriptsciptsize`,
+* `\textsize`, `\scriptsize` and `\scriptsciptsize`,
 * `\newslide` clears the page (`\vfill\break`),
 * `\topfill` inserts `\topglue` of `0pt plus 1fill`,
 * `\fold` inserts `-1fill` vertical glue,
