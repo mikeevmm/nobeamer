@@ -238,6 +238,7 @@
         \expandafter\scriptfont##2=\expandafter\csname ##1sf##3\endcsname%
         \expandafter\scriptscriptfont##2=\expandafter\csname ##1ssf##3\endcsname}%
     \def\nobeamer@oldstyle{rm}
+    \def\nobeamer@oldsize{textsize}
     \expandafter\def\csname #1\endcsname{%
         \nobeamer@setfonts{#1}{0}{rm}%
         \nobeamer@setfonts{#1}{1}{mi}%
@@ -249,9 +250,16 @@
         \nobeamer@setfonts{#1}{\noexpand\ttfam}{tt}%
         \nobeamer@setfonts{#1}{\noexpand\scfam}{sc}%
         \def\styleswitch{%
-            \def\scriptsize{\expandafter\csname #1sf\nobeamer@oldstyle\endcsname}%
-            \def\scriptscriptsize{\expandafter\csname #1ssf\nobeamer@oldstyle\endcsname}%
-            \expandafter\csname #1\nobeamer@oldstyle\endcsname}%
+            \def\textsize{%
+                \def\nobeamer@oldsize{textsize}%
+                \expandafter\csname #1\nobeamer@oldstyle\endcsname}%
+            \def\scriptsize{%
+                \def\nobeamer@oldsize{scriptsize}%
+                \expandafter\csname #1sf\nobeamer@oldstyle\endcsname}%
+            \def\scriptscriptsize{%
+                \def\nobeamer@oldsize{scriptsize}%
+                \expandafter\csname #1ssf\nobeamer@oldstyle\endcsname}%
+            \expandafter\csname \nobeamer@oldsize\endcsname}%
         \def\rm{%
             \def\nobeamer@oldstyle{rm}%
             \styleswitch}%
